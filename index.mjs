@@ -78,9 +78,37 @@ getWinnersByYear(getYears, getWinners, fifaData);
 
 // /* Task 7: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
-// function getAverageGoals(/* code here */) {
-//   /* code here */
-// }
+//const expenses = [1, 2, 3, 4, 5,6]; //, 104 , 105, 106];
+
+// const prev = [{ h:10 }, {A: 1}, { H: 3}]
+const fifaGoals = [
+  { H: 1, away: 3 },
+  { H: 2, A: 5 },
+  { H: 6, A: 10 },
+  { H: 7, A: 19 },
+  { H: 1, A: 4 },
+];
+//avg = total / number;
+
+function getAverageGoals(data) {
+  let total = 0;
+  const HOME = "Home Team Goals";
+  const AWAY = "Away Team Goals";
+  for (let i = 0; i < data.length; i++) {
+    total = total + data[i][HOME] + data[i][AWAY];
+  }
+
+  const averageGoals =
+    data.reduce(function (accumulator, item) {
+      return accumulator + item[HOME] + item[AWAY];
+    }, 0) / data.length;
+
+  console.log(averageGoals);
+  //const homeAvg = totalHome / data.length;
+  //const awayAvg = totalAway / data.length;
+  // `Average home glas: ${homeAvg}. Average away goals: ${awayAvg}`;
+}
+getAverageGoals(fifaData);
 
 // getAverageGoals();
 
@@ -91,9 +119,19 @@ getWinnersByYear(getYears, getWinners, fifaData);
 // Hint: Investigate your data to find "team initials"!
 // Hint: use `.reduce` */
 
-// function getCountryWins(/* code here */) {
-//   /* code here */
-// }
+function getCountryWins(data, teamInitial) {
+  //  let homwins = 0;
+  //  let awaywins = 0;
+  //  for (let i  ; i =++)
+  //  if(teamInitial === data[i]["Home Team Initials"] ) {
+  //    if(home goals > away goals) { win, homewins ++ }
+  //  }
+  //  if( team === data[i]["AWAy team INitals"]) {
+  //    if( awaygoas > hom goasl) { widn, awaywins ++ }
+  //  }
+  //  const totalWins = homwins + awaywins
+  /* code here */
+}
 
 // getCountryWins();
 
@@ -114,3 +152,20 @@ getWinnersByYear(getYears, getWinners, fifaData);
 // badDefense();
 
 // /* If you still have time, use the space below to work on any stretch goals of your chosing as listed in the README file. */
+
+const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let total = 0;
+for (let i = 0; i < numbers.length; i++) {
+  total = numbers[i] + total;
+}
+
+let avg = total / numbers.length;
+
+console.log(avg);
+
+const totalNumber = numbers.reduce(function (add, currentValue) {
+  return add + currentValue;
+}, 0);
+let avg1 = totalNumber / numbers.length;
+
+console.log(avg1);
